@@ -1,0 +1,6 @@
+<%= form_for(pelicula) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.select :genero, @category, :prompt => 'Select One' %>
+  <%= f.submit %>
+<% end %>

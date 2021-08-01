@@ -1,0 +1,11 @@
+<h1><%= @pelicula.name %></h1>
+<h2><%= @pelicula.genero %></h2>
+
+
+<%= link_to "Editar", edit_pelicula_path(@pelicula) %>
+<%= link_to "Eliminar",
+            pelicula_path(@pelicula),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+<%= link_to "Home", peliculas_path %>
+<%# <%= link_to "Añadir Reseña", new_restaurant_review_path(@restaurant) %> 

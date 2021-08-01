@@ -1,5 +1,5 @@
 class PeliculasController < ApplicationController
-  before_action :set_pelicula, only: [:edit, :update, :show, :delete]
+  before_action :set_pelicula, only: [:edit, :update, :show, :destroy]
   def index
     @peliculas = Pelicula.all  
   end
@@ -14,7 +14,7 @@ class PeliculasController < ApplicationController
   end
 
   def create 
-    @pelicula = Pelicula.create(restaurant_params)
+    @pelicula = Pelicula.create(pelicula_params)
     @pelicula.save
 
     redirect_to pelicula_path(@pelicula)
@@ -26,12 +26,12 @@ class PeliculasController < ApplicationController
 
   def update
     @pelicula.update(pelicula_params)
-    redirect_to peliculas_path
+    redirect_to pelicula_path
   end
 
-  def delete
+  def destroy
     @pelicula.destroy
-    redirect_to pelicula_path
+    redirect_to peliculas_path
   end
   private
 
@@ -39,8 +39,7 @@ class PeliculasController < ApplicationController
     params.require(:pelicula).permit(:name, :genero)  
   end
 
-  def set_restaurant
+  def set_pelicula
     @pelicula = Pelicula.find(params[:id])
   end
-end
 end
