@@ -1,0 +1,7 @@
+<h1>Peliculas</h1>
+<%= link_to 'Crear', new_path %>
+<ul>
+<% @peliculas.each do |pelicula| %>
+  <li><%= link_to pelicula.name, pelicula_path(pelicula.id) %></li>
+<% end %>
+</ul>
